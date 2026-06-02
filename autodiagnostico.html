@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autodiagnóstico orientativo · dislexia.com</title>
+<meta name="description" content="Cuestionario orientativo de dislexia en el adulto y espacio de reflexión sobre tu experiencia. No reemplaza una evaluación profesional.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,800&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+<style>
+  .quiz{background:#fff;border:1px solid var(--line);border-radius:24px;padding:40px;box-shadow:var(--shadow);max-width:760px;margin:0 auto}
+  .progress{height:8px;background:var(--paper-2);border-radius:999px;overflow:hidden;margin-bottom:30px}
+  .progress span{display:block;height:100%;width:0;background:var(--accent);border-radius:999px;transition:width .4s}
+  .qphase{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+  .qtext{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:500;margin-bottom:24px;line-height:1.4;color:var(--ink)}
+  .opts{display:flex;flex-direction:column;gap:12px}
+  .opt{display:flex;align-items:center;gap:14px;padding:16px 20px;border:1.5px solid var(--line);border-radius:14px;cursor:pointer;font-size:1rem;transition:.18s;background:var(--paper)}
+  .opt:hover{border-color:var(--accent);background:#fff}
+  .opt.sel{border-color:var(--accent);background:#fff;box-shadow:inset 0 0 0 1px var(--accent)}
+  .opt .bullet{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);flex:none;transition:.18s}
+  .opt.sel .bullet{border-color:var(--accent);background:var(--accent);box-shadow:inset 0 0 0 3px #fff}
+  .reflect textarea{width:100%;min-height:110px;padding:16px;border:1.5px solid var(--line);border-radius:14px;font-family:inherit;font-size:1rem;resize:vertical;background:var(--paper);line-height:1.7}
+  .reflect textarea:focus{outline:0;border-color:var(--accent)}
+  .reflect .hint{font-size:.88rem;color:var(--ink-soft);margin-top:8px}
+  .quiz-nav{display:flex;justify-content:space-between;gap:12px;margin-top:30px}
+  .quiz-nav .btn{flex:1;justify-content:center}
+  .result{display:none}
+  .result.active{display:block}
+  .score-card{text-align:center;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:36px;margin-bottom:24px}
+  .score-card .lvl{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:600;margin-bottom:8px;color:var(--ink)}
+  .score-card .meter{height:14px;background:var(--paper-2);border-radius:999px;overflow:hidden;margin:20px auto;max-width:420px}
+  .score-card .meter span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--accent));border-radius:999px;transition:width .8s;width:0}
+  .reflect-back{background:var(--teal-soft);border-radius:14px;padding:20px;margin-bottom:20px;font-size:.98rem;color:var(--ink-soft)}
+  .reflect-back strong{display:block;margin-bottom:6px;font-family:'Fraunces',serif;color:var(--teal)}
+  .result ul.steps{list-style:none;margin:14px 0;padding:0}
+  .result ul.steps li{padding-left:28px;position:relative;margin-bottom:10px;color:var(--ink-soft)}
+  .result ul.steps li::before{content:"\2192";position:absolute;left:0;color:var(--accent);font-weight:700}
+</style>
+</head>
+<body>
+<div class="a11y" role="region" aria-label="Opciones de accesibilidad">
+  <span>Accesibilidad:</span>
+  <button id="tggLegible" aria-pressed="false">Modo lectura fácil</button>
+  <button id="fontUp">A+</button>
+  <button id="fontDown">A−</button>
+  <button id="readAloud" aria-pressed="false">🔊 Leer en voz alta</button>
+</div>
+<nav class="site">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="dot"></span>dislexia<span style="color:var(--accent)">.com</span></a>
+    <button class="navtoggle" aria-label="Menú" id="navtoggle">☰</button>
+    <div class="navlinks" id="navlinks">
+      <a href="que-es.html">Qué es</a>
+      <a href="signos.html">Signos</a>
+      <a href="autodiagnostico.html" class="active">Autodiagnóstico</a>
+      <a href="vida-diaria.html">Vida diaria</a>
+      <a href="trabajo.html">Trabajo</a>
+      <a href="lectura.html">Lectura</a>
+      <a href="contacto.html" class="cta">Contacto</a>
+    </div>
+  </div>
+</nav>
+<main>
+<header class="page-head">
+  <div class="bg"></div>
+  <div class="wrap">
+    <span class="eyebrow">Autodiagnóstico</span>
+    <h1>¿Cómo procesás vos el <em>lenguaje</em>?</h1>
+    <p class="lead">Una herramienta en dos partes: un cuestionario orientativo sobre experiencias frecuentes, y un espacio para reflexionar sobre cómo lo vivís.</p>
+  </div>
+</header>
+<section class="content">
+  <div class="wrap">
+    <div class="callout" style="max-width:760px;margin:0 auto 28px">⚠️ <strong>Importante:</strong> este cuestionario es orientativo y educativo. <strong>No constituye una evaluación ni un diagnóstico de dislexia.</strong> Una puntuación alta solo indica que podría ser útil una evaluación profesional. Tus respuestas no se guardan ni se envían a ningún lado.</div>
+
+    <div class="quiz">
+      <div class="progress"><span id="prog"></span></div>
+      <div id="quizBody"></div>
+      <div class="quiz-nav" id="quizNav">
+        <button class="btn btn-ghost" id="prevBtn">← Atrás</button>
+        <button class="btn btn-primary" id="nextBtn">Siguiente →</button>
+      </div>
+      <div class="result" id="result">
+        <div style="text-align:center;margin-bottom:20px"><h2 style="font-size:1.5rem">Tu resultado orientativo</h2></div>
+        <div class="score-card">
+          <div class="lvl" id="resLvl"></div>
+          <p id="resText" style="color:var(--ink-soft)"></p>
+          <div class="meter"><span id="resMeter"></span></div>
+        </div>
+        <div class="reflect-back" id="reflectBack"></div>
+        <h3 style="font-family:'Fraunces',serif;margin-bottom:6px;color:var(--ink)">Próximos pasos sugeridos</h3>
+        <ul class="steps" id="resSteps"></ul>
+        <div class="cta-row" style="margin-top:24px">
+          <a href="contacto.html" class="btn btn-primary">Conversar con una psicóloga →</a>
+          <button class="btn btn-ghost" id="restartBtn">Repetir el test</button>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:.85rem;color:var(--ink-soft);margin-top:20px">Cuestionario de screening inspirado en el trabajo de Smythe &amp; Everatt (2001), adaptado con fines orientativos.</p>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand-f">dislexia.com</div>
+      <p style="color:rgba(251,247,240,.6);font-size:.95rem;max-width:30ch">Información, apoyo y herramientas para la dislexia en la vida adulta.</p>
+      <div class="social">
+        <a href="https://www.facebook.com/mundodexia/" aria-label="Facebook">f</a>
+        <a href="https://www.instagram.com/todo.dislexia/" aria-label="Instagram">ig</a>
+        <a href="https://www.linkedin.com/in/carolina-pampliega/" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+    <div><h4>Contenido</h4>
+      <a href="que-es.html">Qué es la dislexia</a><a href="signos.html">Signos en el adulto</a>
+      <a href="autodiagnostico.html">Autodiagnóstico</a><a href="lectura.html">Fluidez lectora</a></div>
+    <div><h4>Para tu día a día</h4>
+      <a href="estudio.html">Estrategias de estudio</a><a href="trabajo.html">Búsqueda de trabajo</a>
+      <a href="vida-diaria.html">Viviendo con dislexia</a><a href="contacto.html">Contacto y apoyo</a></div>
+    <div class="legal">© 2024 dislexia.com · Contenido orientativo y educativo — no reemplaza la evaluación ni el tratamiento profesional.</div>
+  </div>
+</footer>
+<script src="script.js"></script>
+<script>
+const screening=[
+  "Leer textos largos me agota mucho más rápido que a la mayoría de la gente.",
+  "Suelo releer la misma línea o frase varias veces para entenderla.",
+  "Me cuesta organizar mis ideas cuando tengo que escribir.",
+  "Cometo errores de ortografía incluso en palabras que conozco bien.",
+  "Confundo o invierto números, fechas o secuencias (teléfonos, montos).",
+  "Recordar instrucciones de varios pasos seguidos me resulta difícil.",
+  "Prefiero claramente que me expliquen las cosas hablando antes que leyendo.",
+  "De chico/a sentía que leer o escribir me costaba más que a mis compañeros.",
+  "Me cuesta calcular el tiempo o llegar puntual a mis compromisos.",
+  "Evito tareas que implican mucha lectura o escritura cuando puedo.",
+  "Me pierdo con facilidad o confundo izquierda y derecha.",
+  "Me expreso mucho mejor hablando que por escrito."
+];
+const scale=[{t:"Nunca / casi nunca",v:0},{t:"A veces",v:1},{t:"Con frecuencia",v:2},{t:"Casi siempre",v:3}];
+const reflectQs=[
+  {q:"¿Cuándo empezaste a notar que algo te costaba distinto, y cómo lo viviste?",h:"Poner tu historia en palabras ayuda a ordenarla. Es para vos."},
+  {q:"¿En qué situaciones —del trabajo o lo cotidiano— sentís más el impacto hoy?",h:"Identificar el contexto es clave para encontrar estrategias."},
+  {q:"¿Qué cosas se te dan especialmente bien? Tus fortalezas también cuentan.",h:"La autopercepción justa incluye lo que funciona, no solo lo que cuesta."}
+];
+let step=0;
+const total=screening.length+reflectQs.length;
+const answers=new Array(screening.length).fill(null);
+const reflections=new Array(reflectQs.length).fill("");
+const body_=document.getElementById('quizBody'),prog=document.getElementById('prog');
+const prevBtn=document.getElementById('prevBtn'),nextBtn=document.getElementById('nextBtn');
+const quizNav=document.getElementById('quizNav'),resultEl=document.getElementById('result');
+function render(){
+  prog.style.width=(step/total*100)+'%';
+  if(step<screening.length){
+    const sel=answers[step];
+    body_.innerHTML='<div><div class="qphase">Parte 1 · Cuestionario · '+(step+1)+' de '+screening.length+'</div>'+
+      '<div class="qtext">'+screening[step]+'</div><div class="opts">'+
+      scale.map((o,i)=>'<div class="opt '+(sel===i?'sel':'')+'" data-i="'+i+'"><span class="bullet"></span>'+o.t+'</div>').join('')+'</div></div>';
+    body_.querySelectorAll('.opt').forEach(o=>o.addEventListener('click',()=>{answers[step]=+o.dataset.i;render();}));
+  } else {
+    const ri=step-screening.length;
+    body_.innerHTML='<div class="reflect"><div class="qphase">Parte 2 · Reflexión · '+(ri+1)+' de '+reflectQs.length+'</div>'+
+      '<div class="qtext">'+reflectQs[ri].q+'</div>'+
+      '<textarea id="refTa" placeholder="Escribí lo que quieras... no hay respuestas correctas.">'+reflections[ri]+'</textarea>'+
+      '<p class="hint">'+reflectQs[ri].h+'</p></div>';
+    document.getElementById('refTa').addEventListener('input',e=>reflections[ri]=e.target.value);
+  }
+  prevBtn.style.visibility=step===0?'hidden':'visible';
+  nextBtn.textContent=step===total-1?'Ver resultado →':'Siguiente →';
+}
+nextBtn.addEventListener('click',()=>{
+  if(step<screening.length&&answers[step]===null){
+    body_.firstChild.animate([{transform:'translateX(-4px)'},{transform:'translateX(4px)'},{transform:'none'}],{duration:200});return;}
+  if(step<total-1){step++;render();}else finish();
+});
+prevBtn.addEventListener('click',()=>{if(step>0){step--;render();}});
+function finish(){
+  prog.style.width='100%';body_.style.display='none';quizNav.style.display='none';resultEl.classList.add('active');
+  const max=screening.length*3,score=answers.reduce((a,b)=>a+(b||0),0),pct=Math.round(score/max*100);
+  document.getElementById('resMeter').style.width=pct+'%';
+  let lvl,txt,steps;
+  if(pct<30){lvl="Pocos indicadores";
+    txt="Tus respuestas muestran pocos rasgos típicamente asociados a la dislexia. Esto no descarta otras explicaciones para lo que experimentás.";
+    steps=["Si igual sentís dificultades concretas, vale explorarlas con un profesional","Aprovechá las herramientas prácticas del sitio","Cuidá tu autopercepción: tener dificultades no significa que algo esté mal con vos"];}
+  else if(pct<60){lvl="Algunos indicadores presentes";
+    txt="Aparecen varios rasgos compatibles con un perfil disléxico. No es concluyente, pero sí una buena razón para profundizar.";
+    steps=["Considerá una evaluación psicológica para tener claridad","Empezá a probar las estrategias de estudio, lectura y vida diaria","Hablarlo con un profesional puede aliviar mucho la carga emocional"];}
+  else{lvl="Varios indicadores significativos";
+    txt="Tus respuestas reflejan numerosos rasgos frecuentemente asociados a la dislexia adulta. Una evaluación profesional puede darte respuestas y, sobre todo, herramientas.";
+    steps=["Una evaluación profesional te dará un diagnóstico claro","No estás solo/a: el diagnóstico adulto es muy común y abre puertas","Las herramientas del sitio pueden ayudarte desde hoy","Considerá un acompañamiento para trabajar la autopercepción y lo emocional"];}
+  document.getElementById('resLvl').textContent=lvl;
+  document.getElementById('resText').textContent=txt;
+  document.getElementById('resSteps').innerHTML=steps.map(s=>'<li>'+s+'</li>').join('');
+  const wrote=reflections.some(r=>r.trim().length>0);
+  document.getElementById('reflectBack').innerHTML=wrote
+    ?'<strong>Sobre lo que escribiste</strong>Te tomaste el tiempo de mirar tu propia historia: cuándo empezó, dónde impacta y qué se te da bien. Esa mirada completa —dificultades y fortalezas juntas— es justo el punto de partida de un buen acompañamiento. Guardá lo que escribiste; puede ser muy útil en una primera consulta.'
+    :'<strong>Un cierre para vos</strong>La parte reflexiva quedó en blanco, y está bien. Cuando quieras, volvé: poner en palabras tu experiencia —lo que cuesta y lo que se te da bien— suele ser el primer paso para cambiar la relación con la dislexia.';
+}
+document.getElementById('restartBtn').addEventListener('click',()=>{
+  step=0;answers.fill(null);reflections.fill("");
+  body_.style.display='';quizNav.style.display='';resultEl.classList.remove('active');render();
+});
+render();
+</script>
+</body>
+</html>

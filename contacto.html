@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto y apoyo · dislexia.com</title>
+<meta name="description" content="Acompañamiento psicológico para adultos con dislexia. Sesiones online. Primer contacto sin compromiso.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,800&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+<style>
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+  @media(max-width:780px){.contact-grid{grid-template-columns:1fr;gap:30px}}
+  .contact-card{background:var(--ink);color:var(--paper);border-radius:20px;padding:34px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:.9rem;margin-bottom:7px;font-weight:500}
+  .field input,.field textarea{width:100%;padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.06);color:var(--paper);font-family:inherit;font-size:1rem}
+  .field input:focus,.field textarea:focus{outline:0;border-color:var(--gold)}
+  .field textarea{min-height:110px;resize:vertical}
+  .contact-card .btn{background:var(--gold);color:var(--ink);width:100%;justify-content:center}
+  .contact-card .btn:hover{background:#e6b556}
+  .creds li{list-style:none;padding-left:24px;position:relative;color:var(--ink-soft);margin-bottom:10px}
+  .creds li::before{content:"•";position:absolute;left:6px;color:var(--accent);font-weight:700}
+</style>
+</head>
+<body>
+<div class="a11y" role="region" aria-label="Opciones de accesibilidad">
+  <span>Accesibilidad:</span>
+  <button id="tggLegible" aria-pressed="false">Modo lectura fácil</button>
+  <button id="fontUp">A+</button>
+  <button id="fontDown">A−</button>
+  <button id="readAloud" aria-pressed="false">🔊 Leer en voz alta</button>
+</div>
+<nav class="site">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="dot"></span>dislexia<span style="color:var(--accent)">.com</span></a>
+    <button class="navtoggle" aria-label="Menú" id="navtoggle">☰</button>
+    <div class="navlinks" id="navlinks">
+      <a href="que-es.html">Qué es</a>
+      <a href="signos.html">Signos</a>
+      <a href="autodiagnostico.html">Autodiagnóstico</a>
+      <a href="vida-diaria.html">Vida diaria</a>
+      <a href="trabajo.html">Trabajo</a>
+      <a href="lectura.html">Lectura</a>
+      <a href="contacto.html" class="cta">Contacto</a>
+    </div>
+  </div>
+</nav>
+<main>
+<header class="page-head">
+  <div class="bg"></div>
+  <div class="wrap">
+    <span class="eyebrow">Acompañamiento</span>
+    <h1>No tenés que resolverlo <em>en soledad</em></h1>
+    <p class="lead">Acompañamiento psicológico para adultos en su relación con la dislexia: el impacto emocional, la autopercepción y las estrategias prácticas.</p>
+  </div>
+</header>
+<section class="content">
+  <div class="wrap" style="max-width:980px">
+    <div class="contact-grid">
+      <div>
+        <p style="font-size:1.08rem">Muchas personas llegan a la adultez sin saber que son disléxicas. Solo sabían que algo les costaba más — y casi siempre creyeron que el problema eran ellas. Un espacio profesional ayuda a cambiar esa mirada.</p>
+        <p>Trabajamos sobre lo emocional, la autoestima, la autodefensa y las herramientas concretas para el desenvolvimiento diario y profesional.</p>
+        <ul class="creds" style="margin-top:20px">
+          <li>Psicóloga licenciada</li>
+          <li>Enfoque en dislexia adulta y neurodivergencia</li>
+          <li>Atención en español · sesiones online</li>
+          <li>Primer contacto sin compromiso</li>
+        </ul>
+        <p style="margin-top:20px"><strong style="color:var(--ink)">Email:</strong><br><a href="mailto:pampliega.carolina@gmail.com" style="color:var(--accent-deep);font-weight:600">pampliega.carolina@gmail.com</a></p>
+        <div class="social" style="margin-top:10px">
+          <a href="https://www.facebook.com/mundodexia/" aria-label="Facebook" style="background:var(--paper-2);color:var(--ink)">f</a>
+          <a href="https://www.instagram.com/todo.dislexia/" aria-label="Instagram" style="background:var(--paper-2);color:var(--ink)">ig</a>
+          <a href="https://www.linkedin.com/in/carolina-pampliega/" aria-label="LinkedIn" style="background:var(--paper-2);color:var(--ink)">in</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="field"><label for="cn">Nombre</label><input id="cn" type="text" placeholder="Tu nombre"></div>
+        <div class="field"><label for="ce">Email</label><input id="ce" type="email" placeholder="tu@email.com"></div>
+        <div class="field"><label for="cm">¿En qué puedo acompañarte?</label><textarea id="cm" placeholder="Contame brevemente tu situación"></textarea></div>
+        <button class="btn" id="sendBtn">Enviar consulta</button>
+        <p id="formMsg" style="font-size:.88rem;margin-top:14px;color:var(--gold);display:none">Gracias. Para recibir las consultas, conectá este formulario a tu email o a un servicio como Formspree.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand-f">dislexia.com</div>
+      <p style="color:rgba(251,247,240,.6);font-size:.95rem;max-width:30ch">Información, apoyo y herramientas para la dislexia en la vida adulta.</p>
+    </div>
+    <div><h4>Contenido</h4>
+      <a href="que-es.html">Qué es la dislexia</a><a href="signos.html">Signos en el adulto</a>
+      <a href="autodiagnostico.html">Autodiagnóstico</a><a href="lectura.html">Fluidez lectora</a></div>
+    <div><h4>Para tu día a día</h4>
+      <a href="estudio.html">Estrategias de estudio</a><a href="trabajo.html">Búsqueda de trabajo</a>
+      <a href="vida-diaria.html">Viviendo con dislexia</a><a href="contacto.html">Contacto y apoyo</a></div>
+    <div class="legal">© 2024 dislexia.com · Contenido orientativo y educativo — no reemplaza la evaluación ni el tratamiento profesional.</div>
+  </div>
+</footer>
+<script src="script.js"></script>
+<script>
+document.getElementById('sendBtn').addEventListener('click',()=>{
+  const n=document.getElementById('cn').value.trim();
+  if(!n){document.getElementById('cn').focus();return;}
+  document.getElementById('formMsg').style.display='block';
+});
+</script>
+</body>
+</html>
