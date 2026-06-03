@@ -37,6 +37,7 @@ nav.site{position:sticky;top:0;z-index:50;background:rgba(251,247,240,.9);backdr
 nav.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:15px;padding-bottom:15px}
 .brand{font-family:'Fraunces',serif;font-weight:800;font-size:1.7rem;display:flex;align-items:center;gap:10px;text-decoration:none}
 .brand .dot{width:14px;height:14px;border-radius:50%;background:var(--accent)}
+.brand span[style*="accent"]{margin-left:-10px}
 .navlinks{display:flex;gap:20px;font-size:.92rem;font-weight:500;align-items:center;flex-wrap:wrap}
 .navlinks a{text-decoration:none;color:var(--ink-soft);transition:.2s;padding:4px 0}
 .navlinks a:hover,.navlinks a.active{color:var(--accent)}
