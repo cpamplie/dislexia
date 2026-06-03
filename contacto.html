@@ -77,11 +77,14 @@
         </div>
       </div>
       <div class="contact-card">
-        <div class="field"><label for="cn">Nombre</label><input id="cn" type="text" placeholder="Tu nombre"></div>
-        <div class="field"><label for="ce">Email</label><input id="ce" type="email" placeholder="tu@email.com"></div>
-        <div class="field"><label for="cm">¿En qué puedo acompañarte?</label><textarea id="cm" placeholder="Contame brevemente tu situación"></textarea></div>
-        <button class="btn" id="sendBtn">Enviar consulta</button>
-        <p id="formMsg" style="font-size:.88rem;margin-top:14px;color:var(--gold);display:none">Gracias. Para recibir las consultas, conectá este formulario a tu email o a un servicio como Formspree.</p>
+        <form id="contactForm" action="https://formspree.io/f/PEGA_TU_ID_ACA" method="POST">
+          <div class="field"><label for="cn">Nombre</label><input id="cn" name="nombre" type="text" placeholder="Tu nombre" required></div>
+          <div class="field"><label for="ce">Email</label><input id="ce" name="email" type="email" placeholder="tu@email.com" required></div>
+          <div class="field"><label for="cm">¿En qué puedo acompañarte?</label><textarea id="cm" name="mensaje" placeholder="Contame brevemente tu situación" required></textarea></div>
+          <button class="btn" type="submit" id="sendBtn">Enviar consulta</button>
+        </form>
+        <p id="formOk" style="font-size:.95rem;margin-top:16px;color:var(--teal);display:none">¡Gracias por escribir! Tu consulta fue enviada. Te voy a responder a la brevedad.</p>
+        <p id="formErr" style="font-size:.9rem;margin-top:16px;color:var(--accent-deep);display:none">Hubo un problema al enviar. Probá de nuevo, o escribime directamente a pampliega.carolina@gmail.com</p>
       </div>
     </div>
   </div>

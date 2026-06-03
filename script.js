@@ -19,4 +19,17 @@
   if(links) links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const cf=$('#contactForm');
+  if(cf) cf.addEventListener('submit',async(ev)=>{
+    ev.preventDefault();
+    const ok=$('#formOk'), err=$('#formErr'), btn=$('#sendBtn');
+    if(ok)ok.style.display='none'; if(err)err.style.display='none';
+    if(btn){btn.disabled=true;btn.textContent='Enviando…';}
+    try{
+      const r=await fetch(cf.action,{method:'POST',body:new FormData(cf),headers:{'Accept':'application/json'}});
+      if(r.ok){cf.style.display='none';if(ok)ok.style.display='block';}
+      else{if(err)err.style.display='block';}
+    }catch(e){if(err)err.style.display='block';}
+    if(btn){btn.disabled=false;btn.textContent='Enviar consulta';}
+  });
 })();
