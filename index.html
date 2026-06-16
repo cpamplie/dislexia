@@ -6,7 +6,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <title>Dislexia en el adulto · Información, apoyo y herramientas</title>
 <meta name="description" content="Espacio de información, apoyo y herramientas para adultos con dislexia. Autodiagnóstico orientativo, estrategias y acompañamiento psicológico.">
-<link rel="canonical" href="https://www.dislexia.com/">
+<link rel="canonical" href="https://dislexia.com/">
 <meta name="theme-color" content="#e0613a">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
@@ -14,8 +14,8 @@
 <meta property="og:site_name" content="dislexia.com">
 <meta property="og:title" content="Dislexia en el adulto · Información, apoyo y herramientas">
 <meta property="og:description" content="Espacio de información, apoyo y herramientas para adultos con dislexia. Autodiagnóstico orientativo, estrategias y acompañamiento psicológico.">
-<meta property="og:url" content="https://www.dislexia.com/">
-<meta property="og:image" content="https://www.dislexia.com/favicon.svg">
+<meta property="og:url" content="https://dislexia.com/">
+<meta property="og:image" content="https://dislexia.com/favicon.svg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dislexia en el adulto · Información, apoyo y herramientas">
 <meta name="twitter:description" content="Espacio de información, apoyo y herramientas para adultos con dislexia. Autodiagnóstico orientativo, estrategias y acompañamiento psicológico.">
@@ -29,8 +29,8 @@
   "@type": "Psychologist",
   "name": "Lic. Carolina Pampliega",
   "description": "Psicóloga especializada en el acompañamiento de adultos con dislexia. Atención online en español e inglés.",
-  "url": "https://www.dislexia.com/",
-  "image": "https://www.dislexia.com/favicon.svg",
+  "url": "https://dislexia.com/",
+  "image": "https://dislexia.com/favicon.svg",
   "knowsLanguage": ["es", "en"],
   "availableLanguage": ["Spanish", "English"],
   "areaServed": "Online",
@@ -147,7 +147,6 @@
       <div class="social">
         <a href="https://www.facebook.com/mundodexia/" aria-label="Facebook">f</a>
         <a href="https://www.instagram.com/todo.dislexia/" aria-label="Instagram">in</a>
-        <a href="https://www.linkedin.com/in/carolina-pampliega/" aria-label="LinkedIn">in</a>
       </div>
     </div>
     <div>
@@ -165,10 +164,25 @@
       <a href="dexia-kids.html">DEXIA KIDS (app)</a>
       <a href="fuentes.html">Fuentes y lecturas</a>
     </div>
+    <div class="legal" id="gc-visitors" style="display:none">Gracias a nuestros <span id="gc-count">XXX</span> visitantes en 2026.</div>
     <div class="legal">© 2024 dislexia.com · Contenido orientativo y educativo — no reemplaza la evaluación ni el tratamiento profesional.</div>
   </div>
 </footer>
 <script src="script.js"></script>
+<script id="gc-count-fetch">
+(function(){
+  fetch('https://cpampliega.goatcounter.com/counter/TOTAL.json')
+    .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
+    .then(function(d){
+      var n = parseInt(String(d.count).replace(/[^0-9]/g,''), 10);
+      if (!n) return;
+      document.getElementById('gc-count').textContent = n.toLocaleString('es-AR');
+      var els = document.querySelectorAll('#gc-visitors');
+      els.forEach(function(el){ el.style.display=''; });
+    })
+    .catch(function(){ /* si falla, la línea queda oculta */ });
+})();
+</script>
 <script data-goatcounter="https://cpampliega.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>

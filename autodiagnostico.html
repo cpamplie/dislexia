@@ -6,7 +6,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <title>Autodiagnóstico orientativo · dislexia.com</title>
 <meta name="description" content="Cuestionario orientativo de dislexia en el adulto y espacio de reflexión sobre tu experiencia. No reemplaza una evaluación profesional.">
-<link rel="canonical" href="https://www.dislexia.com/autodiagnostico.html">
+<link rel="canonical" href="https://dislexia.com/autodiagnostico.html">
 <meta name="theme-color" content="#e0613a">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
@@ -14,8 +14,8 @@
 <meta property="og:site_name" content="dislexia.com">
 <meta property="og:title" content="Autodiagnóstico orientativo · dislexia.com">
 <meta property="og:description" content="Cuestionario orientativo de dislexia en el adulto y espacio de reflexión sobre tu experiencia. No reemplaza una evaluación profesional.">
-<meta property="og:url" content="https://www.dislexia.com/autodiagnostico.html">
-<meta property="og:image" content="https://www.dislexia.com/favicon.svg">
+<meta property="og:url" content="https://dislexia.com/autodiagnostico.html">
+<meta property="og:image" content="https://dislexia.com/favicon.svg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Autodiagnóstico orientativo · dislexia.com">
 <meta name="twitter:description" content="Cuestionario orientativo de dislexia en el adulto y espacio de reflexión sobre tu experiencia. No reemplaza una evaluación profesional.">
@@ -125,7 +125,6 @@
       <div class="social">
         <a href="https://www.facebook.com/mundodexia/" aria-label="Facebook">f</a>
         <a href="https://www.instagram.com/todo.dislexia/" aria-label="Instagram">ig</a>
-        <a href="https://www.linkedin.com/in/carolina-pampliega/" aria-label="LinkedIn">in</a>
       </div>
     </div>
     <div><h4>Contenido</h4>
@@ -135,6 +134,7 @@
       <a href="estudio.html">Estrategias de estudio</a><a href="trabajo.html">Búsqueda de trabajo</a>
       <a href="vida-diaria.html">Viviendo con dislexia</a>
       <a href="dexia-kids.html">DEXIA KIDS (app)</a><a href="fuentes.html">Fuentes y lecturas</a></div>
+    <div class="legal" id="gc-visitors" style="display:none">Gracias a nuestros <span id="gc-count">XXX</span> visitantes en 2026.</div>
     <div class="legal">© 2024 dislexia.com · Contenido orientativo y educativo — no reemplaza la evaluación ni el tratamiento profesional.</div>
   </div>
 </footer>
@@ -219,6 +219,20 @@ document.getElementById('restartBtn').addEventListener('click',()=>{
   body_.style.display='';quizNav.style.display='';resultEl.classList.remove('active');render();
 });
 render();
+</script>
+<script id="gc-count-fetch">
+(function(){
+  fetch('https://cpampliega.goatcounter.com/counter/TOTAL.json')
+    .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
+    .then(function(d){
+      var n = parseInt(String(d.count).replace(/[^0-9]/g,''), 10);
+      if (!n) return;
+      document.getElementById('gc-count').textContent = n.toLocaleString('es-AR');
+      var els = document.querySelectorAll('#gc-visitors');
+      els.forEach(function(el){ el.style.display=''; });
+    })
+    .catch(function(){ /* si falla, la línea queda oculta */ });
+})();
 </script>
 <script data-goatcounter="https://cpampliega.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
