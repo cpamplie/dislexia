@@ -37,6 +37,10 @@
   .contact-card .btn:hover{background:#e6b556}
   .creds li{list-style:none;padding-left:24px;position:relative;color:var(--ink-soft);margin-bottom:10px}
   .creds li::before{content:"•";position:absolute;left:6px;color:var(--accent);font-weight:700}
+  .wa-btn{display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#fff;border-radius:999px;
+    padding:13px 22px;font-weight:600;font-family:inherit;font-size:1rem;text-decoration:none;
+    box-shadow:0 6px 18px rgba(37,211,102,.3);transition:transform .15s ease,box-shadow .15s ease}
+  .wa-btn:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(37,211,102,.4)}
 </style>
 <script type="application/ld+json">
 {
@@ -83,7 +87,7 @@
   <div class="wrap">
     <span class="eyebrow">Acompañamiento</span>
     <h1>No tenés que resolverlo <em>en soledad</em></h1>
-    <p class="lead">Te invito a una primera consulta sin costo. Ofrezco acompañamiento psicológico para adultos en su relación con la dislexia: el impacto emocional, la autopercepción y las estrategias prácticas.</p>
+    <p class="lead">Acompañamiento psicológico para adultos en su relación con la dislexia: el impacto emocional, la autopercepción y las estrategias prácticas.</p>
   </div>
 </header>
 <section class="content">
@@ -99,7 +103,13 @@
           <li>Primer contacto sin compromiso</li>
         </ul>
         <p style="margin-top:20px"><strong style="color:var(--ink)">Email:</strong><br><a href="mailto:pampliega.carolina@gmail.com" style="color:var(--accent-deep);font-weight:600">pampliega.carolina@gmail.com</a></p>
-        <div class="social" style="margin-top:10px">
+        <p style="margin-top:18px">
+          <a class="wa-btn" href="https://wa.me/5491130303344?text=Hola%2C%20me%20interesa%20coordinar%20la%20consulta%20sin%20costo." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp para coordinar la consulta sin costo">
+            <svg viewBox="0 0 32 32" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.7.9 3.7 1.4 5.8 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.6-.5-5.1-1.4l-.4-.2-4.8 1 1-4.7-.3-.4c-1-1.6-1.5-3.4-1.5-5.3 0-5.5 4.5-10 10.1-10 5.5 0 10 4.5 10 10s-4.5 10-10 10zm5.5-7.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.2 4.6 2 .8 2.7.9 3.7.8.6-.1 1.8-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg>
+            Escribir por WhatsApp
+          </a>
+        </p>
+        <div class="social" style="margin-top:16px">
           <a href="https://www.facebook.com/mundodexia/" aria-label="Facebook" style="background:var(--paper-2);color:var(--ink)">f</a>
           <a href="https://www.instagram.com/todo.dislexia/" aria-label="Instagram" style="background:var(--paper-2);color:var(--ink)">ig</a>
           <a href="https://www.linkedin.com/in/carolina-pampliega/" aria-label="LinkedIn" style="background:var(--paper-2);color:var(--ink)">in</a>
@@ -143,5 +153,7 @@ document.getElementById('sendBtn').addEventListener('click',()=>{
   document.getElementById('formMsg').style.display='block';
 });
 </script>
+<script data-goatcounter="https://cpampliega.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
