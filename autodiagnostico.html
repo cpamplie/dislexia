@@ -4,21 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<title>Autodiagnóstico orientativo · dislexia.com</title>
-<meta name="description" content="Cuestionario orientativo de dislexia en el adulto y espacio de reflexión sobre tu experiencia. No reemplaza una evaluación profesional.">
+<title>Test de dislexia en adultos: autodiagnóstico orientativo · dislexia.com</title>
+<meta name="description" content="Test orientativo de dislexia en adultos: un cuestionario de autoevaluación y un espacio de reflexión sobre tu experiencia. No reemplaza una evaluación profesional.">
 <link rel="canonical" href="https://dislexia.com/autodiagnostico.html">
 <meta name="theme-color" content="#e0613a">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:site_name" content="dislexia.com">
-<meta property="og:title" content="Autodiagnóstico orientativo · dislexia.com">
-<meta property="og:description" content="Cuestionario orientativo de dislexia en el adulto y espacio de reflexión sobre tu experiencia. No reemplaza una evaluación profesional.">
+<meta property="og:title" content="Test de dislexia en adultos: autodiagnóstico orientativo · dislexia.com">
+<meta property="og:description" content="Test orientativo de dislexia en adultos: un cuestionario de autoevaluación y un espacio de reflexión sobre tu experiencia. No reemplaza una evaluación profesional.">
 <meta property="og:url" content="https://dislexia.com/autodiagnostico.html">
 <meta property="og:image" content="https://dislexia.com/favicon.svg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Autodiagnóstico orientativo · dislexia.com">
-<meta name="twitter:description" content="Cuestionario orientativo de dislexia en el adulto y espacio de reflexión sobre tu experiencia. No reemplaza una evaluación profesional.">
+<meta name="twitter:title" content="Test de dislexia en adultos: autodiagnóstico orientativo · dislexia.com">
+<meta name="twitter:description" content="Test orientativo de dislexia en adultos: un cuestionario de autoevaluación y un espacio de reflexión sobre tu experiencia. No reemplaza una evaluación profesional.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,800&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -82,8 +82,8 @@
   <div class="bg"></div>
   <div class="wrap">
     <span class="eyebrow">Autodiagnóstico</span>
-    <h1>¿Cómo procesás vos el <em>lenguaje</em>?</h1>
-    <p class="lead">Una herramienta en dos partes: un cuestionario orientativo sobre experiencias frecuentes, y un espacio para reflexionar sobre cómo lo vivís.</p>
+    <h1>¿Cómo se procesa el <em>lenguaje</em>?</h1>
+    <p class="lead">Un cuestionario orientativo sobre experiencias frecuentes.</p>
   </div>
 </header>
 <section class="content">
@@ -156,9 +156,9 @@ const screening=[
 ];
 const scale=[{t:"Nunca / casi nunca",v:0},{t:"A veces",v:1},{t:"Con frecuencia",v:2},{t:"Casi siempre",v:3}];
 const reflectQs=[
-  {q:"¿Cuándo empezaste a notar que algo te costaba distinto, y cómo lo viviste?",h:"Poner tu historia en palabras ayuda a ordenarla. Es para vos."},
-  {q:"¿En qué situaciones —del trabajo o lo cotidiano— sentís más el impacto hoy?",h:"Identificar el contexto es clave para encontrar estrategias."},
-  {q:"¿Qué cosas se te dan especialmente bien? Tus fortalezas también cuentan.",h:"La autopercepción justa incluye lo que funciona, no solo lo que cuesta."}
+  {q:"¿Cuándo empezó a notarse que algo costaba distinto, y cómo se vivió?",h:"Poner la propia historia en palabras ayuda a ordenarla. Es un espacio personal."},
+  {q:"¿En qué situaciones —del trabajo o lo cotidiano— se siente más el impacto hoy?",h:"Identificar el contexto es clave para encontrar estrategias."},
+  {q:"¿Qué cosas se dan especialmente bien? Las fortalezas también cuentan.",h:"La autopercepción justa incluye lo que funciona, no solo lo que cuesta."}
 ];
 let step=0;
 const total=screening.length+reflectQs.length;
@@ -179,7 +179,7 @@ function render(){
     const ri=step-screening.length;
     body_.innerHTML='<div class="reflect"><div class="qphase">Parte 2 · Reflexión · '+(ri+1)+' de '+reflectQs.length+'</div>'+
       '<div class="qtext">'+reflectQs[ri].q+'</div>'+
-      '<textarea id="refTa" placeholder="Escribí lo que quieras... no hay respuestas correctas.">'+reflections[ri]+'</textarea>'+
+      '<textarea id="refTa" placeholder="Escribe lo que quieras... no hay respuestas correctas.">'+reflections[ri]+'</textarea>'+
       '<p class="hint">'+reflectQs[ri].h+'</p></div>';
     document.getElementById('refTa').addEventListener('input',e=>reflections[ri]=e.target.value);
   }
@@ -198,21 +198,21 @@ function finish(){
   document.getElementById('resMeter').style.width=pct+'%';
   let lvl,txt,steps;
   if(pct<30){lvl="Pocos indicadores";
-    txt="Tus respuestas muestran pocos rasgos típicamente asociados a la dislexia. Esto no descarta otras explicaciones para lo que experimentás.";
-    steps=["Si igual sentís dificultades concretas, vale explorarlas con un profesional","Aprovechá las herramientas prácticas del sitio","Cuidá tu autopercepción: tener dificultades no significa que algo esté mal con vos"];}
+    txt="Tus respuestas muestran pocos rasgos típicamente asociados a la dislexia. Esto no descarta otras explicaciones para lo que se experimenta.";
+    steps=["Si igual hay dificultades concretas, vale explorarlas con un profesional","Aprovecha las herramientas prácticas del sitio","Cuida tu autopercepción: tener dificultades no significa que algo esté mal en uno"];}
   else if(pct<60){lvl="Algunos indicadores presentes";
     txt="Aparecen varios rasgos compatibles con un perfil disléxico. No es concluyente, pero sí una buena razón para profundizar.";
-    steps=["Considerá una evaluación psicológica para tener claridad","Empezá a probar las estrategias de estudio, lectura y vida diaria","Hablarlo con un profesional puede aliviar mucho la carga emocional"];}
+    steps=["Considera una evaluación psicológica para tener claridad","Empieza a probar las estrategias de estudio, lectura y vida diaria","Hablarlo con un profesional puede aliviar mucho la carga emocional"];}
   else{lvl="Varios indicadores significativos";
-    txt="Tus respuestas reflejan numerosos rasgos frecuentemente asociados a la dislexia adulta. Una evaluación profesional puede darte respuestas y, sobre todo, herramientas.";
-    steps=["Una evaluación profesional te dará un diagnóstico claro","No estás solo/a: el diagnóstico adulto es muy común y abre puertas","Las herramientas del sitio pueden ayudarte desde hoy","Considerá un acompañamiento para trabajar la autopercepción y lo emocional"];}
+    txt="Tus respuestas reflejan numerosos rasgos frecuentemente asociados a la dislexia adulta. Una evaluación profesional puede dar respuestas y, sobre todo, herramientas.";
+    steps=["Una evaluación profesional dará un diagnóstico claro","No estás solo/a: el diagnóstico adulto es muy común y abre puertas","Las herramientas del sitio pueden ayudarte desde hoy","Considera un acompañamiento para trabajar la autopercepción y lo emocional"];}
   document.getElementById('resLvl').textContent=lvl;
   document.getElementById('resText').textContent=txt;
   document.getElementById('resSteps').innerHTML=steps.map(s=>'<li>'+s+'</li>').join('');
   const wrote=reflections.some(r=>r.trim().length>0);
   document.getElementById('reflectBack').innerHTML=wrote
-    ?'<strong>Sobre lo que escribiste</strong>Te tomaste el tiempo de mirar tu propia historia: cuándo empezó, dónde impacta y qué se te da bien. Esa mirada completa —dificultades y fortalezas juntas— es justo el punto de partida de un buen acompañamiento. Guardá lo que escribiste; puede ser muy útil en una primera consulta.'
-    :'<strong>Un cierre para vos</strong>La parte reflexiva quedó en blanco, y está bien. Cuando quieras, volvé: poner en palabras tu experiencia —lo que cuesta y lo que se te da bien— suele ser el primer paso para cambiar la relación con la dislexia.';
+    ?'<strong>Sobre lo que escribiste</strong>Te tomaste el tiempo de mirar tu propia historia: cuándo empezó, dónde impacta y qué se te da bien. Esa mirada completa —dificultades y fortalezas juntas— es justo el punto de partida de un buen acompañamiento. Guarda lo que escribiste; puede ser muy útil en una primera consulta.'
+    :'<strong>Un cierre personal</strong>La parte reflexiva quedó en blanco, y está bien. Cuando quieras, vuelve: poner en palabras tu experiencia —lo que cuesta y lo que se te da bien— suele ser el primer paso para cambiar la relación con la dislexia.';
 }
 document.getElementById('restartBtn').addEventListener('click',()=>{
   step=0;answers.fill(null);reflections.fill("");
@@ -225,13 +225,15 @@ render();
   fetch('https://cpampliega.goatcounter.com/counter/TOTAL.json')
     .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
     .then(function(d){
-      var n = parseInt(String(d.count).replace(/[^0-9]/g,''), 10);
-      if (!n) return;
-      document.getElementById('gc-count').textContent = n.toLocaleString('es-AR');
-      var els = document.querySelectorAll('#gc-visitors');
-      els.forEach(function(el){ el.style.display=''; });
+      // d.count_unique es el conteo de visitantes (sin formatear suele venir en count_unique o count)
+      var raw = (d.count_unique != null ? d.count_unique : d.count);
+      var n = parseInt(String(raw).replace(/[^0-9]/g,''), 10);
+      if (isNaN(n) || n < 1) return;
+      var el = document.getElementById('gc-count');
+      if (el) el.textContent = n.toLocaleString('es-AR');
+      document.querySelectorAll('#gc-visitors').forEach(function(x){ x.style.display=''; });
     })
-    .catch(function(){ /* si falla, la línea queda oculta */ });
+    .catch(function(){ /* si falla, la linea queda oculta */ });
 })();
 </script>
 <script data-goatcounter="https://cpampliega.goatcounter.com/count"

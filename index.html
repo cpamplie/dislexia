@@ -4,21 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<title>Dislexia en el adulto · Información, apoyo y herramientas</title>
-<meta name="description" content="Espacio de información, apoyo y herramientas para adultos con dislexia. Autodiagnóstico orientativo, estrategias y acompañamiento psicológico.">
+<title>Dislexia en adultos: información, apoyo y herramientas · dislexia.com</title>
+<meta name="description" content="Dislexia en adultos: qué es, signos, autodiagnóstico orientativo, estrategias para el trabajo y la lectura, y acompañamiento psicológico online.">
 <link rel="canonical" href="https://dislexia.com/">
 <meta name="theme-color" content="#e0613a">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:site_name" content="dislexia.com">
-<meta property="og:title" content="Dislexia en el adulto · Información, apoyo y herramientas">
-<meta property="og:description" content="Espacio de información, apoyo y herramientas para adultos con dislexia. Autodiagnóstico orientativo, estrategias y acompañamiento psicológico.">
+<meta property="og:title" content="Dislexia en adultos: información, apoyo y herramientas · dislexia.com">
+<meta property="og:description" content="Dislexia en adultos: qué es, signos, autodiagnóstico orientativo, estrategias para el trabajo y la lectura, y acompañamiento psicológico online.">
 <meta property="og:url" content="https://dislexia.com/">
 <meta property="og:image" content="https://dislexia.com/favicon.svg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dislexia en el adulto · Información, apoyo y herramientas">
-<meta name="twitter:description" content="Espacio de información, apoyo y herramientas para adultos con dislexia. Autodiagnóstico orientativo, estrategias y acompañamiento psicológico.">
+<meta name="twitter:title" content="Dislexia en adultos: información, apoyo y herramientas · dislexia.com">
+<meta name="twitter:description" content="Dislexia en adultos: qué es, signos, autodiagnóstico orientativo, estrategias para el trabajo y la lectura, y acompañamiento psicológico online.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,800&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -91,8 +91,8 @@
 <section class="block alt">
   <div class="wrap">
     <span class="sec-tag">Por dónde empezar</span>
-    <h2>Recorré el sitio según lo que necesites hoy</h2>
-    <p class="sec-intro">Cada sección reúne información clara y herramientas concretas. Entrá por donde te haga sentido.</p>
+    <h2>Recorre el sitio según lo que necesites hoy</h2>
+    <p class="sec-intro">Cada sección reúne información clara y herramientas concretas. Entra por donde te haga sentido.</p>
     <div class="cards">
       <a href="que-es.html" class="card reveal"><div class="ico">🧠</div><h3>¿Qué es la dislexia?</h3><p>Una forma neurodivergente de procesar el lenguaje. Sin mitos ni culpa.</p><span class="more">Leer →</span></a>
       <a href="signos.html" class="card reveal"><div class="ico">🔎</div><h3>Signos en el adulto</h3><p>Cómo se manifiesta más allá de la lectura: memoria, organización, fatiga.</p><span class="more">Leer →</span></a>
@@ -131,10 +131,10 @@
 <section class="block">
   <div class="wrap" style="max-width:820px">
     <img src="dexia-kids-logo.png" alt="Logo de DEXIA KIDS: una ranita con mochila, lápiz y regla" style="display:block;width:120px;height:auto;border-radius:20px;margin-bottom:20px;box-shadow:0 8px 24px rgba(0,0,0,.12)">
-    <span class="sec-tag">¿Tenés hijos pequeños?</span>
+    <span class="sec-tag">¿Tienes hijos pequeños?</span>
     <h2>DEXIA KIDS, para acompañar los primeros pasos</h2>
     <p class="sec-intro">Como la dislexia tiene una base hereditaria, la estimulación temprana del lenguaje puede marcar una gran diferencia. DEXIA KIDS es una app que ayuda a los chicos de 3 a 8 años a dar sus primeros pasos en la lectura y la escritura, jugando con las letras y los sonidos.</p>
-    <a class="btn btn-primary" href="dexia-kids.html">Conocé DEXIA KIDS</a>
+    <a class="btn btn-primary" href="dexia-kids.html">Conoce DEXIA KIDS</a>
   </div>
 </section>
 </main>
@@ -174,13 +174,15 @@
   fetch('https://cpampliega.goatcounter.com/counter/TOTAL.json')
     .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
     .then(function(d){
-      var n = parseInt(String(d.count).replace(/[^0-9]/g,''), 10);
-      if (!n) return;
-      document.getElementById('gc-count').textContent = n.toLocaleString('es-AR');
-      var els = document.querySelectorAll('#gc-visitors');
-      els.forEach(function(el){ el.style.display=''; });
+      // d.count_unique es el conteo de visitantes (sin formatear suele venir en count_unique o count)
+      var raw = (d.count_unique != null ? d.count_unique : d.count);
+      var n = parseInt(String(raw).replace(/[^0-9]/g,''), 10);
+      if (isNaN(n) || n < 1) return;
+      var el = document.getElementById('gc-count');
+      if (el) el.textContent = n.toLocaleString('es-AR');
+      document.querySelectorAll('#gc-visitors').forEach(function(x){ x.style.display=''; });
     })
-    .catch(function(){ /* si falla, la línea queda oculta */ });
+    .catch(function(){ /* si falla, la linea queda oculta */ });
 })();
 </script>
 <script data-goatcounter="https://cpampliega.goatcounter.com/count"

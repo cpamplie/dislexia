@@ -4,21 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<title>DEXIA KIDS · App para los primeros pasos en la lectura · dislexia.com</title>
-<meta name="description" content="DEXIA KIDS es una app para chicos de 3 a 8 años que estimula la lectura y la escritura desde la conciencia fonológica. Un apoyo temprano, también útil ante los primeros signos de dislexia.">
+<title>DEXIA KIDS: app de lectura y escritura para niños · dislexia.com</title>
+<meta name="description" content="DEXIA KIDS es una app para chicos de 3 a 8 años que estimula la lectura y la escritura desde la conciencia fonológica. Útil ante los primeros signos de dislexia.">
 <link rel="canonical" href="https://dislexia.com/dexia-kids.html">
 <meta name="theme-color" content="#e0613a">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:site_name" content="dislexia.com">
-<meta property="og:title" content="DEXIA KIDS · App para los primeros pasos en la lectura">
-<meta property="og:description" content="App para chicos de 3 a 8 años que estimula la lectura y la escritura desde la conciencia fonológica. Un apoyo temprano, también útil ante los primeros signos de dislexia.">
+<meta property="og:title" content="DEXIA KIDS: app de lectura y escritura para niños · dislexia.com">
+<meta property="og:description" content="DEXIA KIDS es una app para chicos de 3 a 8 años que estimula la lectura y la escritura desde la conciencia fonológica. Útil ante los primeros signos de dislexia.">
 <meta property="og:url" content="https://dislexia.com/dexia-kids.html">
 <meta property="og:image" content="https://dislexia.com/favicon.svg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DEXIA KIDS · App para los primeros pasos en la lectura">
-<meta name="twitter:description" content="App para chicos de 3 a 8 años que estimula la lectura y la escritura desde la conciencia fonológica.">
+<meta name="twitter:title" content="DEXIA KIDS: app de lectura y escritura para niños · dislexia.com">
+<meta name="twitter:description" content="DEXIA KIDS es una app para chicos de 3 a 8 años que estimula la lectura y la escritura desde la conciencia fonológica. Útil ante los primeros signos de dislexia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,800&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -60,7 +60,7 @@
 </header>
 <section class="content">
   <div class="wrap">
-    <p>Si vivís con dislexia y tenés hijos pequeños, quizás te preguntes cómo acompañarlos desde el principio. La dislexia tiene una base hereditaria, así que la estimulación temprana del lenguaje puede marcar una gran diferencia en los primeros años. DEXIA KIDS nació justamente para eso: para hacer ese camino más fácil, intuitivo y entretenido.</p>
+    <p>Si vives con dislexia y tienes hijos pequeños, quizás te preguntes cómo acompañarlos desde el principio. La dislexia tiene una base hereditaria, así que la estimulación temprana del lenguaje puede marcar una gran diferencia en los primeros años. DEXIA KIDS nació justamente para eso: para hacer ese camino más fácil, intuitivo y entretenido.</p>
 
     <h2>Qué es</h2>
     <p>DEXIA KIDS es una aplicación que estimula a los chicos en sus primeros pasos hacia la lectura y la escritura en español. Trabaja desde la <strong>conciencia fonológica</strong> &mdash;el reconocimiento de los sonidos y su secuencia en las palabras&mdash;, que es uno de los predictores más sólidos del aprendizaje de la lectura. Jugando con letras y sonidos, vuelve ese aprendizaje más natural.</p>
@@ -73,7 +73,7 @@
     <h2>Por qué importa la estimulación temprana</h2>
     <p>Estimular el lenguaje en los primeros años hace más llevadero el aprendizaje y la vida escolar. Una proporción muy alta de chicos con dificultades en la lectura y la escritura no recibió una estimulación apropiada del lenguaje en su momento; intervenir temprano es una de las mejores maneras de allanar ese camino.</p>
 
-    <h2 style="margin-bottom:18px">Descargá DEXIA KIDS</h2>
+    <h2 style="margin-bottom:18px">Descarga DEXIA KIDS</h2>
     <div style="display:flex;gap:14px;flex-wrap:wrap">
       <a class="btn btn-primary" href="https://apps.apple.com/app/dexia-kids/id1349892989" target="_blank" rel="noopener">Descargar en App Store</a>
       <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=com.dexiaapp.DexiaFull" target="_blank" rel="noopener">Descargar en Google Play</a>
@@ -116,13 +116,15 @@
   fetch('https://cpampliega.goatcounter.com/counter/TOTAL.json')
     .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
     .then(function(d){
-      var n = parseInt(String(d.count).replace(/[^0-9]/g,''), 10);
-      if (!n) return;
-      document.getElementById('gc-count').textContent = n.toLocaleString('es-AR');
-      var els = document.querySelectorAll('#gc-visitors');
-      els.forEach(function(el){ el.style.display=''; });
+      // d.count_unique es el conteo de visitantes (sin formatear suele venir en count_unique o count)
+      var raw = (d.count_unique != null ? d.count_unique : d.count);
+      var n = parseInt(String(raw).replace(/[^0-9]/g,''), 10);
+      if (isNaN(n) || n < 1) return;
+      var el = document.getElementById('gc-count');
+      if (el) el.textContent = n.toLocaleString('es-AR');
+      document.querySelectorAll('#gc-visitors').forEach(function(x){ x.style.display=''; });
     })
-    .catch(function(){ /* si falla, la línea queda oculta */ });
+    .catch(function(){ /* si falla, la linea queda oculta */ });
 })();
 </script>
 <script data-goatcounter="https://cpampliega.goatcounter.com/count"

@@ -4,21 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<title>Signos de dislexia en el adulto · dislexia.com</title>
-<meta name="description" content="Signos y síntomas de dislexia en adolescentes y adultos: lectura lenta, ortografía, memoria, organización y más.">
+<title>Signos de dislexia en adultos: síntomas y cómo reconocerlos · dislexia.com</title>
+<meta name="description" content="Signos y síntomas de la dislexia en adultos: lectura lenta, dificultades de ortografía, memoria, organización y fatiga. Cómo reconocerlos.">
 <link rel="canonical" href="https://dislexia.com/signos.html">
 <meta name="theme-color" content="#e0613a">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:site_name" content="dislexia.com">
-<meta property="og:title" content="Signos de dislexia en el adulto · dislexia.com">
-<meta property="og:description" content="Signos y síntomas de dislexia en adolescentes y adultos: lectura lenta, ortografía, memoria, organización y más.">
+<meta property="og:title" content="Signos de dislexia en adultos: síntomas y cómo reconocerlos · dislexia.com">
+<meta property="og:description" content="Signos y síntomas de la dislexia en adultos: lectura lenta, dificultades de ortografía, memoria, organización y fatiga. Cómo reconocerlos.">
 <meta property="og:url" content="https://dislexia.com/signos.html">
 <meta property="og:image" content="https://dislexia.com/favicon.svg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Signos de dislexia en el adulto · dislexia.com">
-<meta name="twitter:description" content="Signos y síntomas de dislexia en adolescentes y adultos: lectura lenta, ortografía, memoria, organización y más.">
+<meta name="twitter:title" content="Signos de dislexia en adultos: síntomas y cómo reconocerlos · dislexia.com">
+<meta name="twitter:description" content="Signos y síntomas de la dislexia en adultos: lectura lenta, dificultades de ortografía, memoria, organización y fatiga. Cómo reconocerlos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,800&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -92,7 +92,7 @@
 <section class="block alt">
   <div class="wrap" style="max-width:820px;text-align:center">
     <span class="sec-tag">Siguiente</span>
-    <h2 style="margin-bottom:18px">¿Querés explorar tu propio perfil? Hacé el autodiagnóstico</h2>
+    <h2 style="margin-bottom:18px">¿Quieres explorar tu propio perfil? Haz el autodiagnóstico</h2>
     <a href="autodiagnostico.html" class="btn btn-primary">Continuar &rarr;</a>
   </div>
 </section>
@@ -132,13 +132,15 @@
   fetch('https://cpampliega.goatcounter.com/counter/TOTAL.json')
     .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
     .then(function(d){
-      var n = parseInt(String(d.count).replace(/[^0-9]/g,''), 10);
-      if (!n) return;
-      document.getElementById('gc-count').textContent = n.toLocaleString('es-AR');
-      var els = document.querySelectorAll('#gc-visitors');
-      els.forEach(function(el){ el.style.display=''; });
+      // d.count_unique es el conteo de visitantes (sin formatear suele venir en count_unique o count)
+      var raw = (d.count_unique != null ? d.count_unique : d.count);
+      var n = parseInt(String(raw).replace(/[^0-9]/g,''), 10);
+      if (isNaN(n) || n < 1) return;
+      var el = document.getElementById('gc-count');
+      if (el) el.textContent = n.toLocaleString('es-AR');
+      document.querySelectorAll('#gc-visitors').forEach(function(x){ x.style.display=''; });
     })
-    .catch(function(){ /* si falla, la línea queda oculta */ });
+    .catch(function(){ /* si falla, la linea queda oculta */ });
 })();
 </script>
 <script data-goatcounter="https://cpampliega.goatcounter.com/count"

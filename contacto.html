@@ -4,21 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<title>Contacto y apoyo · dislexia.com</title>
-<meta name="description" content="Acompañamiento psicológico para adultos con dislexia. Sesiones online. Primer contacto sin compromiso.">
+<title>Psicóloga para adultos con dislexia · Consulta online · dislexia.com</title>
+<meta name="description" content="Acompañamiento psicológico para adultos con dislexia: impacto emocional, autoestima y estrategias prácticas. Sesiones online. Primer contacto sin compromiso.">
 <link rel="canonical" href="https://dislexia.com/contacto.html">
 <meta name="theme-color" content="#e0613a">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:site_name" content="dislexia.com">
-<meta property="og:title" content="Contacto y apoyo · dislexia.com">
-<meta property="og:description" content="Acompañamiento psicológico para adultos con dislexia. Sesiones online. Primer contacto sin compromiso.">
+<meta property="og:title" content="Psicóloga para adultos con dislexia · Consulta online · dislexia.com">
+<meta property="og:description" content="Acompañamiento psicológico para adultos con dislexia: impacto emocional, autoestima y estrategias prácticas. Sesiones online. Primer contacto sin compromiso.">
 <meta property="og:url" content="https://dislexia.com/contacto.html">
 <meta property="og:image" content="https://dislexia.com/favicon.svg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Contacto y apoyo · dislexia.com">
-<meta name="twitter:description" content="Acompañamiento psicológico para adultos con dislexia. Sesiones online. Primer contacto sin compromiso.">
+<meta name="twitter:title" content="Psicóloga para adultos con dislexia · Consulta online · dislexia.com">
+<meta name="twitter:description" content="Acompañamiento psicológico para adultos con dislexia: impacto emocional, autoestima y estrategias prácticas. Sesiones online. Primer contacto sin compromiso.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,800&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -86,7 +86,7 @@
   <div class="bg"></div>
   <div class="wrap">
     <span class="eyebrow">Acompañamiento</span>
-    <h1>No tenés que resolverlo <em>en soledad</em></h1>
+    <h1>No tienes que resolverlo <em>en soledad</em></h1>
     <p class="lead">Acompañamiento psicológico para adultos en su relación con la dislexia: el impacto emocional, la autopercepción y las estrategias prácticas.</p>
   </div>
 </header>
@@ -94,7 +94,7 @@
   <div class="wrap" style="max-width:980px">
     <div class="contact-grid">
       <div>
-        <p style="font-size:1.08rem">Muchas personas llegan a la adultez sin saber que son disléxicas. Solo sabían que algo les costaba más — y casi siempre creyeron que el problema eran ellas. Un espacio profesional ayuda a cambiar esa mirada.</p>
+        <p style="font-size:1.08rem">Muchas personas llegan a la adultez sin saber que son disléxicas. Solo sabían que algo les costaba más y casi siempre creyeron que el problema eran ellas. Un espacio profesional ayuda a cambiar esa mirada.</p>
         <p>Trabajamos sobre lo emocional, la autoestima, la autodefensa y las herramientas concretas para el desenvolvimiento diario y profesional.</p>
         <ul class="creds" style="margin-top:20px">
           <li>Enfoque en dislexia adulta y neurodivergencia</li>
@@ -120,7 +120,7 @@
           <button class="btn" type="submit" id="sendBtn">Enviar consulta</button>
         </form>
         <p id="formOk" style="font-size:.95rem;margin-top:16px;color:var(--teal);display:none">¡Gracias por escribir! Tu consulta fue enviada. Te voy a responder a la brevedad.</p>
-        <p id="formErr" style="font-size:.9rem;margin-top:16px;color:var(--accent-deep);display:none">Hubo un problema al enviar. Probá de nuevo en unos minutos, o escribime por WhatsApp.</p>
+        <p id="formErr" style="font-size:.9rem;margin-top:16px;color:var(--accent-deep);display:none">Hubo un problema al enviar. Prueba de nuevo en unos minutos, o escribime por WhatsApp.</p>
       </div>
     </div>
   </div>
@@ -188,13 +188,15 @@
   fetch('https://cpampliega.goatcounter.com/counter/TOTAL.json')
     .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
     .then(function(d){
-      var n = parseInt(String(d.count).replace(/[^0-9]/g,''), 10);
-      if (!n) return;
-      document.getElementById('gc-count').textContent = n.toLocaleString('es-AR');
-      var els = document.querySelectorAll('#gc-visitors');
-      els.forEach(function(el){ el.style.display=''; });
+      // d.count_unique es el conteo de visitantes (sin formatear suele venir en count_unique o count)
+      var raw = (d.count_unique != null ? d.count_unique : d.count);
+      var n = parseInt(String(raw).replace(/[^0-9]/g,''), 10);
+      if (isNaN(n) || n < 1) return;
+      var el = document.getElementById('gc-count');
+      if (el) el.textContent = n.toLocaleString('es-AR');
+      document.querySelectorAll('#gc-visitors').forEach(function(x){ x.style.display=''; });
     })
-    .catch(function(){ /* si falla, la línea queda oculta */ });
+    .catch(function(){ /* si falla, la linea queda oculta */ });
 })();
 </script>
 <script data-goatcounter="https://cpampliega.goatcounter.com/count"
