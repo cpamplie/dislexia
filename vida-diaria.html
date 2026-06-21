@@ -120,7 +120,7 @@
       <a href="dexia-kids.html">DEXIA KIDS (app)</a>
       <a href="fuentes.html">Fuentes y lecturas</a>
     </div>
-    <div class="legal" id="gc-visitors" style="display:none">Gracias a nuestros <span id="gc-count">XXX</span> visitantes en 2026.</div>
+    <div class="legal" id="gc-visitors" style="display:none">Gracias a nuestros <span id="gc-count">XXX</span> visitantes desde el 15 de junio de 2026.</div>
     <div class="legal">&copy; 2024 dislexia.com &middot; Contenido orientativo y educativo &mdash; no reemplaza la evaluaci&oacute;n ni el tratamiento profesional.</div>
   </div>
 </footer>
@@ -130,7 +130,6 @@
   fetch('https://cpampliega.goatcounter.com/counter/TOTAL.json')
     .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
     .then(function(d){
-      // d.count_unique es el conteo de visitantes (sin formatear suele venir en count_unique o count)
       var raw = (d.count_unique != null ? d.count_unique : d.count);
       var n = parseInt(String(raw).replace(/[^0-9]/g,''), 10);
       if (isNaN(n) || n < 1) return;
