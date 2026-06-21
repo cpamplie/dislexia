@@ -157,7 +157,7 @@ const screening=[
 const scale=[{t:"Nunca / casi nunca",v:0},{t:"A veces",v:1},{t:"Con frecuencia",v:2},{t:"Casi siempre",v:3}];
 const reflectQs=[
   {q:"¿Cuándo empezó a notarse que algo costaba distinto, y cómo se vivió?",h:"Poner la propia historia en palabras ayuda a ordenarla. Es un espacio personal."},
-  {q:"¿En qué situaciones —del trabajo o lo cotidiano— se siente más el impacto hoy?",h:"Identificar el contexto es clave para encontrar estrategias."},
+  {q:"¿En qué situaciones (del trabajo o lo cotidiano) se siente más el impacto hoy?",h:"Identificar el contexto es clave para encontrar estrategias."},
   {q:"¿Qué cosas se dan especialmente bien? Las fortalezas también cuentan.",h:"La autopercepción justa incluye lo que funciona, no solo lo que cuesta."}
 ];
 let step=0;
@@ -211,8 +211,8 @@ function finish(){
   document.getElementById('resSteps').innerHTML=steps.map(s=>'<li>'+s+'</li>').join('');
   const wrote=reflections.some(r=>r.trim().length>0);
   document.getElementById('reflectBack').innerHTML=wrote
-    ?'<strong>Sobre lo que escribiste</strong>Te tomaste el tiempo de mirar tu propia historia: cuándo empezó, dónde impacta y qué se te da bien. Esa mirada completa —dificultades y fortalezas juntas— es justo el punto de partida de un buen acompañamiento. Guarda lo que escribiste; puede ser muy útil en una primera consulta.'
-    :'<strong>Un cierre personal</strong>La parte reflexiva quedó en blanco, y está bien. Cuando quieras, vuelve: poner en palabras tu experiencia —lo que cuesta y lo que se te da bien— suele ser el primer paso para cambiar la relación con la dislexia.';
+    ?'<strong>Sobre lo que escribiste</strong>Te tomaste el tiempo de mirar tu propia historia: cuándo empezó, dónde impacta y qué se te da bien. Esa mirada completa, dificultades y fortalezas juntas, es justo el punto de partida de un buen acompañamiento. Guarda lo que escribiste; puede ser muy útil en una primera consulta.'
+    :'<strong>Un cierre personal</strong>La parte reflexiva quedó en blanco, y está bien. Cuando quieras, vuelve: poner en palabras tu experiencia (lo que cuesta y lo que se te da bien) suele ser el primer paso para cambiar la relación con la dislexia.';
 }
 document.getElementById('restartBtn').addEventListener('click',()=>{
   step=0;answers.fill(null);reflections.fill("");
